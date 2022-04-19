@@ -1,13 +1,14 @@
-import React from "react";
-
-const Host: React.FC = () => {
+const Host = () => {
   const onClick = () => {
     import("../../recommendations-api").then(({ HelloWorld }) => {
       HelloWorld && console.log("success!");
     });
   };
 
-  return <button onClick={onClick}>Import Recommendations</button>;
+  const button = document.createElement("button");
+  button.innerHTML = "Load API";
+  button.click = onClick;
+  document.appendChild(button);
 };
 
 export { Host };
